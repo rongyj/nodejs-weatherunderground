@@ -1,0 +1,2439 @@
+<head><style>html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+	background-color:white;
+}
+
+body {
+	font-family: "Times New Roman", Times, serif;
+	font-size: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.container {
+	display: flex;
+
+}
+
+ul {
+	list-style: square;
+}
+li {
+	margin-left: 25px;
+	padding-left: 0px;
+}
+
+#cv {
+	  padding-left: 10px;
+  	flex: 3;
+		counter-reset: company;
+}
+
+
+#extra {
+	background-color: black;
+	color: white;
+  	flex: 1;
+  	font-size: large;
+  	padding: 10px;
+}
+
+div[id$='extra'] > a:link, div[id$='extra'] > ul > a:link{
+	text-decoration: : none;
+}
+
+div[id$='extra'] > a:visited, div[id$='extra'] > ul > a:link{
+	text-decoration: : none;
+}
+
+div[id$='extra'] > img {
+	width: 25%;
+	height: 25%;
+}
+
+table.work-experience {
+	  border: 2px solid black;
+    border-collapse: collapse;
+		table-layout: auto;
+}
+
+tr,th,td {
+	border: 1px solid black;
+}
+tr.work-item-header {
+	text-align:center;
+}
+tr.work-item {
+	text-align:left;
+}
+
+td.work-employer{
+	text-align:center;
+}
+
+td.work-accomplishments{
+	text-align:left;
+}
+
+div.work-item::before{
+	  counter-increment: company;
+    content: counter(company)". ";
+		font-size: large;
+		font-weight: bold;
+}
+.work-item{
+    counter-reset: projects;
+}
+
+#hobbies{
+	counter-reset: hobby-projects;
+}
+div.hobby-project-item::before{
+	  counter-increment: hobby-projects;
+    content: "H."counter(hobby-projects)" ";
+		font-size: large;
+		font-weight: bold;
+}
+
+div.project-item::before{
+	  counter-increment: projects;
+    content: counter(company)"."counter(projects)" ";
+		font-size: large;
+		font-weight: bold;
+}
+
+.bold-font {
+	font-weight: bold;
+}
+
+#contact {
+	padding: 8px 4px;
+	border-radius: 5px;
+	text-align: center;
+	margin: 0 auto;
+	width: 500px;
+}
+
+.contact-name {
+	font-size: large;
+	font-weight: bold;
+}
+
+.section {
+	margin-top: 20px;
+	padding-bottom: 10px;
+}
+
+.projecs-section {
+
+}
+.projects-title-section {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: large;
+	padding-top: 8px;
+	padding-bottom: 5px;
+}
+.subtitle-section {
+	font-weight: bold;
+	font-size: medium;
+	text-decoration: underline;
+}
+
+.title-section {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: larger;
+	padding-bottom: 10px;
+}
+.item-projects-title{
+	padding-top: 1em;
+	font-size: large;
+}
+.header-date,.header-company-name{
+	font-size: medium;
+}
+
+.header-date ,.header-company-name,.header-school-name,.description-education, .item-projects-title, .header-employer, .header-accomplishments, .header-technologies {
+	font-weight: bold;
+}
+
+.section > div {
+	padding-left: 45px;
+}
+.education-item {
+	padding-bottom: 5px;
+}
+.work-item, .project-item {
+	padding-bottom: 15px;
+}
+.description-work {
+	padding-bottom: 5px;
+	text-indent: 1.5em;
+}
+
+.technologies-work > span {
+	font-weight: bold;
+	font-size: medium;
+}
+
+.skills-items > span {
+	padding : 0px 10px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	border-radius: 6px;
+	border: 1px solid black;
+	background-color: #B2913F;
+	color: white;
+	font-weight: bold;
+	font-size: medium;
+	flex: 0 0 auto;
+}
+
+.skills-items {
+	padding-left: 45px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.highlighted {
+	border-radius: 5px;
+	font-size: medium;
+}
+@media (max-width: 900px) {
+    .container {
+        display: block;
+    }
+}
+
+@media print {
+	body {
+		margin: 0 0;
+	}
+	#extra {
+		display: none;
+	}
+}
+#extra {display: none;}</style>
+				
+</head>
+<body>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script> <script> jQuery(document).ready(function($) { $.ajax({ url : "http://api.wunderground.com/api/8ed4539e6b2f7398/geolookup/conditions/q/autoip.json", dataType : "jsonp", success : function(parsed_json) { var location = parsed_json['location']['city']; var temp_f = parsed_json['current_observation']['temp_f']; alert("Current temperature in " + location + " is: " + temp_f); } }); }); </script>
+</body>
+<div class="container">
+
+    <div id="cv">
+        <div id="contact" >
+            <div class="contact-name">Yongjun Rong</div>
+            <div class="contact-email">Email:rongyj@hotmail.com Tel:856-408-4027</div>
+            <div class="contact-email">Cherry Hill, NJ, USA, 08003 (Visa Status: Green Card)</div>			
+        </div>
+
+        <div id="education" class="section">
+            <div class="title-section">Education</div>
+            <div class="education-item" >
+                <span class="header-date">Jun.2006,</span>
+                <span class="description-education">Master of Computer Science,</span>
+                <span class="header-school-name">Texas Tech University,</span>
+                <span class="header-school-location">Lubbock, TX, USA</span>
+            </div>
+            <div class="education-item" >
+                <span class="header-date">Feb.1996,</span>
+                <span class="description-education">Master of Engineering,</span>
+                <span class="header-school-name">Shanghai JiaoTong University,</span>
+                <span class="header-school-location">Shanghai, China</span>
+            </div>
+            <div class="education-item" >
+                <span class="header-date">Jul.1991,</span>
+                <span class="description-education">Bachelor of Engineering,</span>
+                <span class="header-school-name">Changsha Railway University,</span>
+                <span class="header-school-location">Changsha, Hunan, China</span>
+            </div>
+        </div>
+        <div id="skills" class="section">
+            <div class="title-section" style="page-break-after: avoid">Skills:</div>
+            <div>
+              <ul class="highlighted">
+                  <li>Cloud platform&#x2F;infrastructure design and implementation and DevOps Automation (AWS, Docker, VMWare&#x2F;Openstack, Linux HA, Ruby&#x2F;Rails, Bash, REST, Maven, GIT, SVN, CI, SDLC, DHCP, PXE, Cobbler, MySQL&#x2F;PostgreSQL, GFS2&#x2F;SAN)</li>
+                  <li>Large SOA Web Services (SOAP&#x2F;WSDL, REST&#x2F;XML&#x2F;JSON, RIA ) Enterprise Application Cloud&#x2F;On-Premises Integration Service (IaaS) design, development and deployment</li>
+                  <li>Desktop and Online Accounting, CRM and ERP System Integration Architect (Java to C&#x2F;C++&#x2F;DLLs, COM&#x2F;COM+&#x2F;DCOM,.NET, WCF,SOAP&#x2F;WSDL,REST)</li>
+                  <li>Server-side software development with middleware (J2EE,.NET) and DBMS</li>
+                  <li>Distributed Network System Administration(EC2, Linux&#x2F;Unix&#x2F;Windows, RAID, SAN, LDAP, Kerberos, NFS, DNS, LAN&#x2F;VLAN, WAN, GSLB)</li>
+              </ul>
+            </div>
+        </div>
+        <div id="hobbies" class="section" >
+            <div class="title-section">Hobbies</div>
+            <div class="hobbies-items">
+                <ul class="highlighted">
+                    <li>
+                      Pingpong
+                          (ITTF Score around 1200)
+                    </li>
+                    <li>
+                      IoT or Robot programming
+                          (Have iRobot and MIPOSaur at home. Programming against iRobot create SDK and MIPOSaur SDK.)
+                    </li>
+                    <li>
+                      IOS&#x2F;Andriod Apps Development
+                          (Developing a Chinese charater learning App)
+                    </li>
+                    <li>
+                      Playing with cutting-edge technologies
+                          (Docker, Go, Kafka, Kurbernets and Amazon Cloudformation, JavaScript, AngularJs, ReactiveJs, Node.js)
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="work-experience" class="section">
+          <div class="title-section">Work Experience Summary:</div>
+          <div >
+          <table id="work-experience" class="section" style="page-break-before: always; page-break-after: auto;">
+            <tr class="work-item-header" style="page-break-inside: avoid;">
+                <th class="header-employer" style="width:20%">Employments</th>
+                <th class="header-accomplishments"> Major Accomplishments & Technologies </th>
+            </tr>
+              <tr class="work-item"  style="page-break-inside: avoid;">
+                <td class="work-employer" rowspan="2">
+                  <p>May, 2014 &ndash; Current
+                  <p class="bold-font">Oracle
+                  <p>Redwood, CA (WFH@NJ),USA 
+                  <p class="bold-font">Lead Software Engineer
+                </td>
+                <td style="page-break-inside: avoid;">
+                  <ul class="highlighted">
+                      <li>Docker Swarm&#x2F;Compose&#x2F;Stack CD&#x2F;CI Test Environment for  Cloud SDK&#x2F;APIs&#x2F;Connectors</li>
+                      <li>Cloud Enterprise Applications Integration(EAI) connectivity SDK&#x2F;API plugin framework for Oracle SOA Suite</li>
+                      <li>Oracle Fusion Applications (FA) Business Event&#x2F;Message-Driven Connector Framework</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr style="page-break-inside: avoid;">
+                <td style="page-break-inside: avoid;">
+                  <span class="technologies-work" style="page-break-inside: avoid;">
+                      Java,
+                      SOA,
+                      Web Services,
+                      SOAP&#x2F;WSDL,
+                      REST&#x2F;JSON&#x2F;XML,
+                      XSchema&#x2F;XSD,
+                      DOM,
+                      WSDL4J,
+                      SDK,
+                      API,
+                      MVC,
+                      Docker,
+                      Cloud,
+                      Amazon EC2,
+                      NoSQL,
+                      GIT,
+                      Maven,
+                      Junit,
+                      SoapUI,
+                      IaaS,
+                      SaaS,
+                      AWS,
+                  </span>
+                </td>
+             </tr>
+              <tr class="work-item"  style="page-break-inside: avoid;">
+                <td class="work-employer" rowspan="2">
+                  <p>Oct. 2010 &ndash; Apr. 2014
+                  <p class="bold-font">Comcast T&amp;P
+                  <p>Philadelphia, PA,USA
+                  <p class="bold-font">Senior Infrastructure Automation Engineer
+                </td>
+                <td style="page-break-inside: avoid;">
+                  <ul class="highlighted">
+                      <li>AutoBuild System for Build&#x2F;Release more than 200 microservices projects with GIT&#x2F;SVN&#x2F;Maven</li>
+                      <li>Configuration management and deployment automation with Puppet and Capistrano</li>
+                      <li>Continious Integration (CI) and Continious Deployment (CD) with Bamboo and Jenkins</li>
+                      <li>Performance Monitoring System for Jetty, JVM, Linux and Splunk</li>
+                      <li>Secured FTP server with virtual users and admins users with complex access permissions</li>
+                      <li>BOM (Bill Of Materials) Administration and Management Application (BAMA) Enhancement and maintenance</li>
+                      <li>Two Steps bare-metal Linux bootstrap system for HP Servers</li>
+                      <li>Linux HA for Git Repo(Gerrit) and Maven Repo (Artifactory&#x2F;Nexus) Servers</li>
+                      <li>Automation scripts and tools for DevOps</li>
+                      <li>CoreOS and Docker prototyping and testing</li>
+                      <li>SDLC process management and junior team member training and mentoring</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr style="page-break-inside: avoid;">
+                <td style="page-break-inside: avoid;">
+                  <span class="technologies-work" style="page-break-inside: avoid;">
+                      DevOps,
+                      Automation,
+                      Docker,
+                      CoreOS,
+                      Ruby,
+                      Ruby on Rails 3,
+                      Bash,
+                      SDLC,
+                      GIT,
+                      Maven,
+                      Jira&#x2F;Confluence,
+                      Bamboo&#x2F;Jekins&#x2F;Hudson,
+                      Nexus&#x2F;Artifactory,
+                      Gerrit,
+                      CI&#x2F;CD,
+                      Performance Monitoring,
+                      Splunk,
+                      JMX,
+                      Capistrano,
+                      PXE&#x2F;TFTP,
+                      DHCP,
+                      DNS,
+                      Cobbler,
+                      Centos,
+                      MySQL&#x2F;PostgreSQL,
+                      NoSQL,
+                      Cassandra,
+                      RabbitMQ,
+                      JMS,
+                      LDAP,
+                      SSO,
+                      Mtrics,
+                      Graphite,
+                      Agile,
+                      RPC,
+                      Cloud,
+                      Clustering,
+                      Linux HA,
+                      HAProxy,
+                      Pacemaker&#x2F;Corrosync&#x2F;Cman,
+                      SAN,
+                      GFS2,
+                      RAC,
+                      Volume Manager,
+                  </span>
+                </td>
+             </tr>
+              <tr class="work-item"  style="page-break-inside: avoid;">
+                <td class="work-employer" rowspan="2">
+                  <p>Nov. 2006 &ndash; Oct., 2010
+                  <p class="bold-font">Boomi Inc.
+                  <p>Berwyn, PA,USA
+                  <p class="bold-font">Senior Software Engineer
+                </td>
+                <td style="page-break-inside: avoid;">
+                  <ul class="highlighted">
+                      <li>Boomi  On-Demand Business Integration Cloud Service</li>
+                      <li>Cloud Platform&#x2F;Infrastructure Design and Implementation for Boomi On Demand Production Environment</li>
+                      <li>Desktop Accounting and ERP Enterprise Applications Integration (EAI)</li>
+                      <li>Amazon EC2 and S3 SOA HA Environment</li>
+                      <li>Setup Development, Build and Deployment Environment for QA, Staging and Production Environment</li>
+                      <li>Research virtualization technology and implement Virtual Machines using VMware server and workstation</li>
+                      <li>Java to C&#x2F;C++, DLL, COM&#x2F;COM+&#x2F;DCOM&#x2F;.NET Integration</li>
+                      <li>SaaS system integration</li>
+                      <li>SAP system integration</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr style="page-break-inside: avoid;">
+                <td style="page-break-inside: avoid;">
+                  <span class="technologies-work" style="page-break-inside: avoid;">
+                      Java,
+                      SOA,
+                      IaaS,
+                      PaaS,
+                      EAI,
+                      XML,
+                      XSD,
+                      JAXB,
+                      JavaScript,
+                      .NET,
+                      EC2,
+                      S3,
+                      EBS,
+                      REST,
+                      SOAP,
+                      WSDL,
+                      SaaS,
+                      SAP,
+                      BAPI,
+                      ABAP,
+                      MySQL&#x2F;PostgreSQL,
+                      Maven,
+                      SVN,
+                      JVM,
+                      JVM GC Tunning,
+                      Apache Luncen,
+                      Apache Solr,
+                      VMWare,
+                      Cloud,
+                  </span>
+                </td>
+             </tr>
+              <tr class="work-item"  style="page-break-inside: avoid;">
+                <td class="work-employer" rowspan="2">
+                  <p>Jun., 2006 &ndash; Nov.,2006
+                  <p class="bold-font">Vantage learning
+                  <p>Newtown, PA,USA 
+                  <p class="bold-font">Senior System Engineer Manager
+                </td>
+                <td style="page-break-inside: avoid;">
+                  <ul class="highlighted">
+                      <li>Large scale SOA e-learning system architecture design and blueprinting</li>
+                      <li>Large Data Center Design and Administration</li>
+                      <li>Sun SPARCStorage SSA Array 100 and Sybase SQL Server (10.x, 11.x) Data (DB schema, data and Stored-Procedure) Recovery</li>
+                      <li>Ecommerce Open Source Software installation and Configuration</li>
+                      <li>Resin Application Server Distributed Session Design and Setup</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr style="page-break-inside: avoid;">
+                <td style="page-break-inside: avoid;">
+                  <span class="technologies-work" style="page-break-inside: avoid;">
+                      Linux,
+                      Centos,
+                      SOA,
+                      Java,
+                      .NET,
+                      Network,
+                      VLAN,
+                      Router,
+                      Firewall,
+                      Load Balancer,
+                      SOAP&#x2F;WSDL,
+                      MySQL&#x2F;PostgreSQL,
+                      Struts,
+                      Disk Array,
+                      Fedora,
+                      Redhat Linux,
+                      LAMP,
+                      eCommerce,
+                      SQL,
+                  </span>
+                </td>
+             </tr>
+              <tr class="work-item"  style="page-break-inside: avoid;">
+                <td class="work-employer" rowspan="2">
+                  <p>May, 2002 &ndash; Jun.,2006
+                  <p class="bold-font">Computer Science, Texas Tech University
+                  <p>Lubbock, Texas,USA
+                  <p class="bold-font">Senior Programmer&#x2F;Analyst and Unix System Administrator
+                </td>
+                <td style="page-break-inside: avoid;">
+                  <ul class="highlighted">
+                      <li>Unix network System and Software routine maintenance</li>
+                      <li>Setup Veritas Netbackup System with RAID0&#x2F;1&#x2F;5  and Tape Library</li>
+                      <li>Setup LDAP,  Kerberos KDC and Cross-Realm system</li>
+                      <li>Migrated email system from UNIX mail server to Windows Exchange Server</li>
+                      <li>Secured Postfix SMTP server with SASL Authentication and Verification</li>
+                      <li>Installed AIX 5.1 and configured NIM on IBM RS6000 (10x 7043-140 boxes and 1x 7024-E30 box) </li>
+                      <li>Deployed Globus Tookit3.2.1 (OGSA&#x2F;OGSI) Grid Computing Environment on Solaris 9(3 boxes) and Linux (3 boxes)</li>
+                      <li>Setup Jumpstart Environment for Solaris 9 and Solaris 10</li>
+                      <li>Designed and Implemented the Single Sign-On (SSO) for Unix and Windows Environments</li>
+                      <li>The Migration from NIS+ to LDAP for Solaris</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr style="page-break-inside: avoid;">
+                <td style="page-break-inside: avoid;">
+                  <span class="technologies-work" style="page-break-inside: avoid;">
+                      JAVA,
+                      C&#x2F;C++,
+                      GCC,
+                      GNU Make,
+                      perl,
+                      LADP,
+                      NFS,
+                      SSO,
+                      Kerberos,
+                      SSL,
+                      SMTP,
+                      Email Sever and Client,
+                      Solaris,
+                      AIX,
+                      Mac OSX,
+                      Linux,
+                      Windows Server,
+                      PAM,
+                      RAID,
+                      SCSI,
+                      Veritas,
+                      TFTP,
+                      RARP&#x2F;ARP,
+                      Bootparamd,
+                      DHCP,
+                      Postfix,
+                      PostgreSQL,
+                      NIS&#x2F;NIS+,
+                  </span>
+                </td>
+             </tr>
+              <tr class="work-item"  style="page-break-inside: avoid;">
+                <td class="work-employer" rowspan="2">
+                  <p>Aug.,2002 &ndash; Aug.,2006
+                  <p class="bold-font">Computer Science, Texas Tech University
+                  <p>Lubbock, Texas,USA
+                  <p class="bold-font">Master Student
+                </td>
+                <td style="page-break-inside: avoid;">
+                  <ul class="highlighted">
+                      <li>Master Thesis: A Service Wrapping and Provisioning Framework for SOA</li>
+                      <li>GIS Project: A Yield Mapping and Prediction Information Delivery System</li>
+                      <li>Independently finished practical course projects list</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr style="page-break-inside: avoid;">
+                <td style="page-break-inside: avoid;">
+                  <span class="technologies-work" style="page-break-inside: avoid;">
+                      Java,
+                      C&#x2F;C++,
+                       GCC,
+                      Gnu Make,
+                      Linux,
+                      Linux Kernel,
+                      GIS,
+                      Ant,
+                      Stuts,
+                      J2EE,
+                      UML2,
+                      MVC,
+                      Maven,
+                      PostGIS,
+                      PostgreSQL,
+                      Solaris,
+                  </span>
+                </td>
+             </tr>
+              <tr class="work-item"  style="page-break-inside: avoid;">
+                <td class="work-employer" rowspan="2">
+                  <p>Apr., 2000  &ndash; May, 2002
+                  <p class="bold-font">Technology Development Center, Sun Microsystem (China) Co.,Ltd.
+                  <p>Beijing,P. R. China
+                  <p class="bold-font">Senior Software Engineer
+                </td>
+                <td style="page-break-inside: avoid;">
+                  <ul class="highlighted">
+                      <li>Java Message Service(JMS) Prototype Application</li>
+                      <li>Remote Learning Management Platform (www.ambow.com)</li>
+                      <li>Bao Steel B2B Website (www.bsteel.com)</li>
+                      <li>Project Management Tools</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr style="page-break-inside: avoid;">
+                <td style="page-break-inside: avoid;">
+                  <span class="technologies-work" style="page-break-inside: avoid;">
+                      Java,
+                      J2EE,
+                      JMS,
+                      EJB,
+                      Servlets,
+                      JDBC,
+                      Message-Driven Bean,
+                      LDAP,
+                      SQL,
+                      Weblogic,
+                      OOA&#x2F;OOD,
+                      UML,
+                      MVC,
+                      Oracle DBMS,
+                      Java IDL,
+                      RMI,
+                      CORBA,
+                      JNDI,
+                      Solaris,
+                      CVS,
+                      Ant,
+                  </span>
+                </td>
+             </tr>
+              <tr class="work-item"  style="page-break-inside: avoid;">
+                <td class="work-employer" rowspan="2">
+                  <p>Aug.,1998 &ndash; Apr.,2000
+                  <p class="bold-font">IBM China Research and Development Lab
+                  <p>Beijing,P. R. China
+                  <p class="bold-font">Software Engineer
+                </td>
+                <td style="page-break-inside: avoid;">
+                  <ul class="highlighted">
+                      <li>Credit Card Internet Online Payment System</li>
+                      <li>Jiro&#x2F;Jini-based Storage Management System</li>
+                      <li>Handwriting Recognizing System</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr style="page-break-inside: avoid;">
+                <td style="page-break-inside: avoid;">
+                  <span class="technologies-work" style="page-break-inside: avoid;">
+                      Java,
+                      J2EE,
+                      C&#x2F;C++,
+                      Servlets,
+                      WebSphere,
+                      SSL,
+                      JDBC,
+                      Windows NT,
+                      SAN,
+                      POS,
+                      JNI,
+                      DB2,
+                  </span>
+                </td>
+             </tr>
+              <tr class="work-item"  style="page-break-inside: avoid;">
+                <td class="work-employer" rowspan="2">
+                  <p>Apr.,1996 &ndash; Jul.,1997
+                  <p class="bold-font">North China Institute (Taiji Computers Corporation)
+                  <p>Beijing,P. R. China
+                  <p class="bold-font">System&#x2F;Network&#x2F;Software Engineer
+                </td>
+                <td style="page-break-inside: avoid;">
+                  <ul class="highlighted">
+                      <li>System Engineer,IBM Service Center</li>
+                      <li>Software Engineer, HUAXU Golden Card Co.Ltd.</li>
+                      <li>Large scale Network System Design and Administion</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr style="page-break-inside: avoid;">
+                <td style="page-break-inside: avoid;">
+                  <span class="technologies-work" style="page-break-inside: avoid;">
+                      C&#x2F;C++,
+                      Assembly,
+                      Network Design,
+                      Router,
+                      Switch,
+                      VLAN,
+                      AIX,
+                      Disk Array,
+                      SSA,
+                      RAID,
+                      Volume Manager,
+                      IC,
+                      RIP&#x2F;OSPF,
+                      Ciso IOS,
+                  </span>
+                </td>
+             </tr>
+              <tr class="work-item"  style="page-break-inside: avoid;">
+                <td class="work-employer" rowspan="2">
+                  <p>Jun., 1991 &ndash; Sep.,1993
+                  <p class="bold-font">Yongji Electrical and Motor Factory
+                  <p>ShanXi Province,P. R. China
+                  <p class="bold-font">Mechanical Engineer
+                </td>
+                <td style="page-break-inside: avoid;">
+                  <ul class="highlighted">
+                      <li>CIMS and FMS CAPP&#x2F;CAD&#x2F;CAM manufacturing Automcation application development</li>
+                  </ul>
+                </td>
+              </tr>
+              <tr style="page-break-inside: avoid;">
+                <td style="page-break-inside: avoid;">
+                  <span class="technologies-work" style="page-break-inside: avoid;">
+                      C&#x2F;C++,
+                      AutoCAD,
+                      CAD&#x2F;CAM&#x2F;CAPP,
+                      CIMS&#x2F;FMS,
+                      DOS,
+                  </span>
+                </td>
+             </tr>
+            </table>
+          </div>
+        </div>
+        <div id="work-experience" class="section">
+            <div class="title-section" style="page-break-before: always; page-break-after: auto">Selected Projects</div>
+            <div class="work-item" >
+                <span class="header-date">May, 2014 &ndash; Current,</span>
+                <span class="header-company-name">Lead Software Engineer, Oracle</span>
+                <span class="header-company-location" style="page-break-inside: avoid">, Redwood, CA (WFH@NJ),USA </span><br />
+                <div class="description-work"> The Cloud Connectivity software engineering team is responsible to develop the Cloud Integration Connectivity SDK and Java Connectors which enable the SOA Suite and Oracle Integration Cloud Service (ICS) connectivity to any Oracle internal or external SaaS or On-Premises Enterprise Applications. </div>
+                <div id="projects" class="projects-section">
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Docker Swarm&#x2F;Compose&#x2F;Stack CD&#x2F;CI Test Environment for  Cloud SDK&#x2F;APIs&#x2F;Connectors </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Research and prototype the docker containers, compose and swarm technologies to help developer setup complex testing services stack and improve CI testing environments for the SDK&#x2F;APIs and Java Connectors.  </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed and setup complex Docker containers network with Overlay and MACVLAN drivers </li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Created Dockerfiles to build WebLogic docker images with different external modules and libraries</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Built Docker Hosts in Oracle Cloud VMs, Amazon EC2 and local VirtualBox by using Docker Machine</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed and built the pool of Docker Cluster Environment by using Docker Swarm</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Created Docker Stack file and deploy the service stack for multiple microservices</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed docker-compose.yml files with extending services for the full service stack including dependency Web Services, DBMS, NoSQL and JMS</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Researched and prototyped the Docker Swarm and Docker Compose integration</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Docker,
+                                Docker Machine,
+                                Docker Compose,
+                                Docker Swarm,
+                                Docker Stack,
+                                Docker CLI (Rest APIs),
+                                Weblogic,
+                                Oracle Cloud VMs,
+                                AWS,
+                                JMS,
+                                NoSQL (Cassandra),
+                                DBMS (MySQL and PostgreSQL),
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Cloud Enterprise Applications Integration(EAI) connectivity SDK&#x2F;API plugin framework for Oracle SOA Suite </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> The Cloud Integration Connectivity SDK and Java Connectors are built on the top of the Connector Architecture in the Award winning Oracle SOA Suite. It provides the plugin connectivity to any SaaS and On-Premises Enterprise Applications for the Oracle Integration Cloud Service and SOA Suite. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed and implemented the WSDL regeneration framework by rebuilding the internal data model (DOM) from the persisted integration flow artifacts files (JCA, WSDL and XSD) and the remote custom data</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed and implemented new APIs for the SDK to provide cache and pagination abilities for the backend persistent layer</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed and implemented NLS and localization framework for displayable strings within the SDK</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Troubleshoot the WSDL&#x2F;XSD generation issues related to complex mixing namespaces and prefixes</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develop utility methods to handle the namespaces and prefixes conflicts while combining the importing external schema to a single WSDL file</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develop recursive logic to follow the XML element types to embed the undefined data structure if it has the same target namespace or create new schema if it has different target namespace</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Dynamically and Programmatically generate or regenerate the simplified integration WSDL from large set of source WSDL, schema XSD files and fresh custom data by using XDK&#x2F;JAXP&#x2F;WSDL4J&#x2F;DOM</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Programmatically manipulate the single WSDL file generation from the source WSDL and schema XSD files with external schema file importing</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Programmatically handle the anonymous Complex and Simple XSD type for the integration WSDL generation and regeneration</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and test Oracle RCU DB descriptive XML files for new DB tables&#x2F;sequences with primary and foreign keys</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Worked together with different connector development teams to joint debug the WSDL regeneration related issues</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Train and transfer knowledge for the WSDL regeneration framework to geographically distributed connector development teams</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Java,
+                                SOA,
+                                SOAP&#x2F;REST,
+                                WSDL&#x2F;JSON,
+                                XML,
+                                XML Schema,
+                                API,
+                                SDK,
+                                IaaS,
+                                RCU,
+                                JCA,
+                                XDK,
+                                JAXP,
+                                WSDL4J,
+                                DOM,
+                                WS-Security,
+                                Jersey REST&#x2F;JSON,
+                                MVC,
+                                ADF,
+                                NLS&#x2F;L10,
+                                Oracle DB,
+                                Jira,
+                                Agile,
+                                ADE,
+                                GIT,
+                                Maven,
+                                Junit,
+                                XMLUnit,
+                                SoapUI,
+                                OSC,
+                                ERP,
+                                HCM,
+                                RightNow,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Oracle Fusion Applications (FA) Business Event&#x2F;Message-Driven Connector Framework </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> The business event connector framework provides the abilities to auto-discover the FA (OSS&#x2F;ERP&#x2F;HCM) business events (including custom events), set event filtering conditions, subscribe to interesting business event and expose the SOAP web service as the event listener through the ICS web&#x2F;JDeveloper design time UI. This event connector framework enables the Fire-and-Forget&#x2F; Asynchronous Response and Publish&#x2F;Subscribe integration pattern for Business Event&#x2F;Message Integration </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and implement the business event connector for FA (OSC&#x2F;ERP&#x2F;HCM)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Build the design time web UI using the Oracle Web UI SDK which is building on the top of ADF</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and Implement the Business Event Connector Runtime  </li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Programmatically manipulate the payload to align with the changed schema in the integration WSDL  </li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and implement the custom event based on the generic event concepts </li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Programmatically replace the xsi:anyType generic object type with the concrete object type selected by the end user from the web UI</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Java,
+                                FA,
+                                OSC&#x2F;ERP&#x2F;HCM,
+                                WSDL&#x2F;SOAP,
+                                REST,
+                                JSON,
+                                XSI,
+                                XML Schema,
+                                XDK,
+                                JAXP,
+                                WSDL4J,
+                                DOM,
+                                WS-Security,
+                                Jersey REST&#x2F;JSON,
+                                MVC,
+                                ADF,
+                                ADE,
+                                Maven,
+                                Junit,
+                                XMLUnit,
+                                SoapUI,
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="work-item" >
+                <span class="header-date">Oct. 2010 &ndash; Apr. 2014,</span>
+                <span class="header-company-name">Senior Infrastructure Automation Engineer, Comcast T&amp;P</span>
+                <span class="header-company-location" style="page-break-inside: avoid">, Philadelphia, PA,USA</span><br />
+                <div class="description-work"> As a senior engineer in BITT(Build Integration Test Team), provided DevOps support for multiple development teams and supporting the developers for SDLC infrastructure system design&#x2F;implementation, and Build&#x2F;Release&#x2F;Deployment&#x2F;SCM&#x2F;CI automation., designed, developed and implemented the AutoBuild system, OpenSource performance monitoring system for the SDLC systems, two steps bare-metal Linux bootstrap system for HP servers, Linux HA Clusters for SCM&#x2F;Maven&#x2F;CI&#x2F;Crowd servers, Ruby&#x2F;Rails software system maintenance and improvement. Managed the SCM(Gerrit&#x2F;Subversion), CI(Bamboo) and maven repo (Nexus and Artifactory) system. Designed and developmented automation scripts (bash&#x2F;ruby) to improve work efficiency. Led and Trained junior team members. </div>
+                <div id="projects" class="projects-section">
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> AutoBuild System for Build&#x2F;Release more than 200 microservices projects with GIT&#x2F;SVN&#x2F;Maven </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Automate the branching&#x2F;tagging process and improve the work efficiency from 3 days to 1 day for more than 200 projects. Using maven versions plugin and maven repo REST API to automatically detect the latest snapshot and released dependency version and update pom.xml automatically. The cut tag script can cut a bug-fixing tag for the bug-fixing patch within 5 minutes. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and implement the error handling and logging system for ruby bash commands</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Implement build dependency graph and tree using RGL for more than 200 projects</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Refactoring autoBuild to adapt to much large organization development practices</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and implement the whole AutoBuild system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Using ruby and bash scripts wraps multiple manual steps to automate the whole branching and tagging process</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Modify maven versions plugin to fix the bug which cannot update the dependency version property variables and the bug which cannot update the latest snapshot version to the latest released version</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Detect and update the dependency versions in pom.xml automatically using maven versions plugin and maven repo servers REST API</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and implement the branching&#x2F;tagging process</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed ruby&#x2F;bash scripts to lock&#x2F;unlock remote GIT branch in gerri server during branching and cutting tags period</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design code standards and rule to follow AutoBuild conventions for developers</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Applied convention over configuration for AutoBuild system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develop ruby scripts to post json message to a BOM management system to allow the artifacts ready to deploy</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develop automation script to post message to Jira and Confluence page using Atlassian Jira-cli and Confluence-cli</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develop bamboo scripts using bamboo command-cli to create plans from git&#x2F;svn repos automatically</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Install and configure Bamboo, Nexus, Artifactory, Crowd&#x2F;OpenID, Gerrit and Subversion servers.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Maintain Ruby&#x2F;Rails BOM management system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup maven release, versions, toolchains, dependency…etc. plugins</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Ruby&#x2F;Rails,
+                                gems,
+                                Bash,
+                                Maven,
+                                GIT,
+                                SVN,
+                                Bamboo&#x2F;Jira&#x2F;Confluence CLI,
+                                Nexus&#x2F;Artifactory REST&#x2F;XML,
+                                SDLC,
+                                CI&#x2F;CD,
+                                Gerrit&#x2F;Subversion,
+                                MySQL&#x2F;PostgreSQL,
+                                Crowd&#x2F;OpenID,
+                                Capistrano,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Configuration management and deployment automation with Puppet and Capistrano </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Configuration management and deployment automation system by using puppet for linux os level configuration and capistrano for application level deployment automation </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup puppet master server and agent in Linux centos for DevOps and CI&#x2F;CD environments</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed and implemented develop&#x2F;build&#x2F;deployment process for the puppet templates files by using GIT</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed puppet templates file for linux os patch and lib yum installation and updates</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed capistrano deployment automation tasks and functions used by operation team for production deployment</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Maintained and troubleshooting complex configuration and deployment automation issue within Capistrano and Puppet</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed puppet templates and capistrano tasks to automate the configuration and deployment process for microservices with Dev&#x2F;CI&#x2F;CD environments</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed Capistrano tasks to automate the Liferay deployment to Dev&#x2F;QA&#x2F;Staging&#x2F;Prod environments with JDBC driver configuration to Oracle DB Server 11g</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Puppet,
+                                Capistrano,
+                                Ruby,
+                                bash,
+                                CI&#x2F;CD,
+                                GIT,
+                                Maven,
+                                Perl,
+                                Python,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Continious Integration (CI) and Continious Deployment (CD) with Bamboo and Jenkins </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Automation and Integration of the CI&#x2F;CD clusting environments for more than 100 microservices with build&#x2F;runtime dependencies using Bamboo and Jenkins </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed and implemented the CI&#x2F;CD clustering environments using Bamboo and Jenkins for all different development and release branches</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed automation scripts using Ruby&#x2F;Bash&#x2F;Perl&#x2F;Python to launch the CI&#x2F;CD environments with complex dependencies for more than 100 microservices</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed auotmated integration scripts to integrated Bamboo&#x2F;Jenkins with Jira&#x2F;Confluence, GIT&#x2F;Maven repo</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed and implemented complex tasks&#x2F;jobs chains&#x2F;pipeline with trigger or events</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Maintained and Troubleshooted complex CI&#x2F;CD issues within the clustering environments with multiple Subsystems for more than 100 microservices</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed automation scripts to automatically create Bamboo tasks from git repo and capistrano</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed Capistrano automation tasks to deploy microservices stack with multiple microservices to Dev&#x2F;QA&#x2F;Staging&#x2F;Prod</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed Capistrano tasks to generate configuration file for HAProxy automatically</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Bamboo and Jenkins Servers Cluster with multiple remote agents&#x2F;nodes as the build&#x2F;deployment servers</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                CI&#x2F;CD,
+                                Bamboo,
+                                Jenkins,
+                                Ruby,
+                                Bash,
+                                Python,
+                                GIT,
+                                Maven,
+                                Jira&#x2F;Confluence,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Performance Monitoring System for Jetty, JVM, Linux and Splunk </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> The performance monitoring system collects JMX, splunk and OS metrics and display stats graphs for all different kinds of metrics for JVM heaps, threads and OS CPU&#x2F;Disk&#x2F;Memory usage and IO throughputs. Using open source projects and modify ruby&#x2F;scala&#x2F;java&#x2F;python tools to integrate all different projects into one performance monitoring system, the system helps to detect the performance bottlenecks. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed the whole monitoring system using open source projects such as graphite, gdash, metricsd, stated, jmxtrans and god...etc.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed UDP metrics connectors and ruby splunk searcher to collect splunk stats</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Devloped UDP connection for open source project jmxtrans, metricsd by using Java and Scala</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed Capistrano task to dynamically generate gdash templates for the metrics graphs and jmxtrans configuration files.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed scripts manage the ruby processes by using open source God project</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Fixed the bug cannot listing the jmx attributes in details for open source project jmxsh</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Metrics,
+                                graphite,
+                                jmx,
+                                splunk,
+                                Ruby,
+                                splunk-ruby-SDK,
+                                performance monitoring,
+                                UDP,
+                                Capistrano,
+                                god,
+                                bash,
+                                gdash,
+                                graphite,
+                                statsd,
+                                metricsd,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Secured FTP server with virtual users and admins users with complex access permissions </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Setup vsftp with virtual ftp only users and sftp servers with chrooted admin users to get complex access control for different type of users </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup vsftp server with virtual ftp only user which can only do ftp access and do not have local account associated</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup sftp server with admin users which are chrooted such that they do not have access to the files</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup the hybrid users with both ftp and sftp access</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Modified open source vuser administration bash scripts to adapt to the special requirements</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed script to sync the virtual user and local user for the hybrid user account</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup complex user and group permission to do access control for different users</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                ftp,
+                                sftp,
+                                chroot,
+                                bash,
+                                linux,
+                                user&#x2F;group unix permission,
+                                sshd,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> BOM (Bill Of Materials) Administration and Management Application (BAMA) Enhancement and maintenance </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Implemented with Ruby on Rails 3, Delayed_jobs, Ruby Websocket server, mySQL as the DB server, Passangers(mod_rails) and Apache HTTPD as LB, an internal BOM Administration and Management Application provides deployment automation and Management for more than 200 microservices for different environments (Dev&#x2F;QA&#x2F;Staging&#x2F;Prod).The Enhancement feature enables the user to customize the list of microservices to deploy to different systems with matched Capistrano versions and BOM versions. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Installed and configured Ruby on Rails 3 for BAMA for different environments with Delayed_jobs, Websocket server</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed the Enhancement feature for BAMA to enable customization of list of microservices deployment to different systems</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed Rails3 ActiveRecord DB Migraiton scripts to add new columns to the DB tables</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed Rail3 Model, View, Controller, Routes, Websocket and Validation jobs</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed Websocket server customized startup script</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed scripts to integrate Capistrano and BOM GIT repo and BAMA together to deploy microservices with matching versions for Dev&#x2F;QA&#x2F;Staging&#x2F;Prod environments</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed automation ruby scripts to post JSON message to BAMA for the released artifacts</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed scripts to upload artifacts to Maven Repo (Artifactory and Nexus) by using their REST APIs</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup SSO (Signle-Sign-On) for BAMA with Atlassian Crowd ID and LDAP-based Authentication</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Ruby,
+                                RoR 3,
+                                Rails 3,
+                                ActiveRecord,
+                                ActionView,
+                                ActionController,
+                                ActionMailer,
+                                Websocket,
+                                linux,
+                                JSON,
+                                Capistrano,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Two Steps bare-metal Linux bootstrap system for HP Servers </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> This system bootstrap the bare-metal HP box to automatically install and configure CentOS 6. First, it boots the HP bare-metal box to the HP-Toolkit via tftp&#x2F;pxe to setup BIOS configuration, collect the mac address, add DHCP host section with static ip and add new cobbler system using customized cobbler xmlrpc bash client. Second, it boots the bare-metal box to get the static DHCP IP and tftp&#x2F;pxe to the cobbler profile to install and configure CentOS 6 automatically. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design the two steps bootstrap system using tftp&#x2F;pxe&#x2F;dhcp and cobbler</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Statically build netstat tool using make&#x2F;gcc to run it in HP-Toolkit with limited dynamic libraries</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed a XMLRPC bash client to remotely connect back to the DHCP&#x2F;cobbler server to add a new system from the bare-metal box during the first boot</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Modify the bootstrap script for the first boot to collect the mac-address and parse a boot configure file to add a new system to cobbler server.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Physically upgrade the memory, disks and fusion IO adapter for HP blade servers</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup ILO and IPMI</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configure disk-array and virtual storage management (lvm, pv and vg..etc.)</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                TFTP,
+                                PXE,
+                                DHCP,
+                                DNS,
+                                cobbler,
+                                RPC,
+                                xml,
+                                bash,
+                                ILO 3,
+                                IPMI,
+                                LVM,
+                                HP Servers,
+                                CentOS 6,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Linux HA for Git Repo(Gerrit) and Maven Repo (Artifactory&#x2F;Nexus) Servers </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> The two nodes Linux HA cluster is for Git repo (Gerrit) &#x2F; Maven Repo(Artifactory and Nexus) master&#x2F;slave failover system. Using pacemaker&#x2F;corosync&#x2F;cman or keepalived&#x2F;haproxy, it setup Gerrit, artifactory&#x2F;Nexus master&#x2F;slave automatically failover cluster with PostgreSQL&#x2F;RAC and GFS2 over SAN &#x2F; DRBD as backend DBMS and distributed file system. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design Linux HA master&#x2F;slave failover cluster for Gerrit, Artifactory.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configure pacemaker&#x2F;corosync&#x2F;cman for two-nodes cluster</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Create Pacemaker resources and constraints for the services using pcs</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup and configure  keepalived and haproxy for Nexus, artifactory</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed HAProxy initd scripts to automatically failover to the latest good configure file if capistrano generate incorrect config file</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Distributed filesystem GFS2 over SAN(Multipath) and DRBD</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed keepalived check scripts for Nexus and artifactory</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup PostgreSQL master&#x2F;slave cluster over SAN</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup LVM over SAN</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup OpenID authentication for Gerrit</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Gerrit cluster over SAN and PostgreSQL</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Artifactory Cluster over SAN and RAC</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Nexus Cluster via replication scripts with rsync</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Gerrit OpenID authentication with Atlassian crowd backend with Multiple LDAP servers</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Pacemaker,
+                                Corosync,
+                                Cman,
+                                Keepalived,
+                                HAProxy,
+                                GFS2,
+                                DRBD,
+                                SAN,
+                                Gerrit,
+                                Artifactory,
+                                Nexus,
+                                PostgreSQ,
+                                OpenID,
+                                LDAP,
+                                Crowd,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Automation scripts and tools for DevOps </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Develop and use scripts (Ruby&#x2F;Bash) and tools to automate the build&#x2F;release&#x2F;deploy process to improve the work efficiency. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develop migration tools to migrate git repos from different remote git repos(Gerrit, stash and gitorious) to new Gerrit server</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develop scripts to find the largest commit object and rewrite git history to improve git performance</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develop Gerrit&#x2F;git hooks for rally and jira</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develop multiple automation tools using confluence, jira and bamboo CLI</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed tools to automatically build the source dependency tree and branch&#x2F;tagging parallel</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Maintain configuration management tool Capistrano and automate the environment and service configuration </li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Using Puppet to automate the system level configuration</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed Nexus replication scripts from master to slave automatically with keepalived</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed maven circular dependency checking scripts and created nightly CI jobs to run it against more than 100 microservices projects</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develope Capistrano logic to automatically check ruby version and install the right ruby version with rbenv</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed bash scripts to launch python scripts to generate data parity reports and upload to confluence pages automatically</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed automation tools to create Rally defect ticket and upload the heapDump file and grep the exception logs</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Migrated Solr from Single-core to multi-core with automated Capistrano tasks</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed Capistrano task to automatically migrate the solr data while upgarde jettey to new version</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Installed and configured Python 2 and Python 3 in the same linux host</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed Capistrano logic to automatically detect DB schema changes made by developers from source code</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Ruby,
+                                Bash,
+                                Python,
+                                Capistrano,
+                                Jira&#x2F;Rally,
+                                Bamboo&#x2F;Confluence,
+                                Git&#x2F;Gerrit,
+                                puppet,
+                                Nexus replication,
+                                REST&#x2F;XML,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> CoreOS and Docker prototyping and testing </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Using docker and CoreOS to dynamically create development and integration test environment on demand for each developer by launch a set of docker LXC with haproxy as the internal load balancer </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Helped design and implement the docker LXC system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup CoreOS stateful and stateless using pxe image via cobbler and tftpboot&#x2F;DHCP</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Create Docker images for CentOS&#x2F;Java&#x2F;Ruby&#x2F;Haproxy</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Create ruby Capistrano tasks to dynamically provision docker instances with haproxy as the internal LB on demand</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Automate the dynamic deployment and provisioning process by using docker rest API and tools</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                CoreOS,
+                                Docker,
+                                Ruby,
+                                REST,
+                                LXC,
+                                cobbler,
+                                pxe,
+                                tftpboot,
+                                DHCP,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> SDLC process management and junior team member training and mentoring </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Design and Manage the SDLC process to build&#x2F;release&#x2F;deploy more than 200 projects to maven repo&#x2F;CI&#x2F;Integration Test environments. Maintain the maven repo servers(Nexus and artifactory clusters), CI (Bamboo), SCM (Subversion and Git&#x2F;Gerrit) and clustering integration environments.Identify and troubleshooting the build&#x2F;release&#x2F;deploy issues. Training, guiding and mentoring junior team member. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Help to design and identify the build&#x2F;release&#x2F;deploy and configuration management strategies</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design standard development and code standards for developers to follow the autoBuild process.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Using Capistrano to manage deployment configuration for different environments(Dev, QA, Staging and Prod..etc.)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Communicate with developers to figure out the build&#x2F;release issues</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Troubleshooting build&#x2F;release and configuration issues</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Lead small team to develop autoBuild system using agile methodology</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Train and guide new team member</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Write confluence pages for documents</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Presents to other team members in brown bag session</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Transfer knowledge to other team member </li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Administration the SCM&#x2F;CI&#x2F;Maven Repos clustering environments and SDLC tools</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Research and design github enterprise branch&#x2F;release process</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develop scripts to build dependency graphs and design algorithm to simplify it to dependency tree for more than 150 projects (git repos)</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                SDLC,
+                                SCM,
+                                Git&#x2F;Subversion,
+                                GIT Hooks,
+                                Ruby,
+                                Bash,
+                                Confluence,
+                                Jira,
+                                Agile,
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="work-item" >
+                <span class="header-date">Nov. 2006 &ndash; Oct., 2010,</span>
+                <span class="header-company-name">Senior Software Engineer, Boomi Inc.</span>
+                <span class="header-company-location" style="page-break-inside: avoid">, Berwyn, PA,USA</span><br />
+                <div class="description-work"> As the market and technology leader in on-demand integration, Boomi is the industry&#39;s first and leading integration platform-as-a-service and a two-time SIIA CODiE award winner - Best Application Integration Solution (2010) and Best On-Demand Platform (2009). </div>
+                <div id="projects" class="projects-section">
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Boomi  On-Demand Business Integration Cloud Service </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> A Large On-Demand integration service-oriented (SOA) system helps to visually design the business integration process using Rich Internet Application (RIA), automatically deploy to distributed run-time engines based on REST&#x2F;XML style.  The run-time engine named &quot;atom&quot; contains all the components required to execute an integration process from end-to-end including connectors, transformation rules, decision handling and processing logic. The software is delivered as a SaaS system based on web 2.0 technologies with zero installation and zero coding. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and implement synchronous&#x2F;asynchronous message framework using XML&#x2F;JAXB&#x2F;REST&#x2F;HTTP</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and implement dynamic reflection invocation connector framework using dynamic proxy and customized class loading to failover from local file system to remote webserver</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">User Management Subsystem (PKI certificate token based authentication and authorization)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and implement connectors to desktop accounting systems (QuickBooks, MAS 90, MS Dynamics Great Plains, Peachtree), ERP systems (MAS 500, SAP, MS Dynamics Navision, MS Dynamics CRM on-premise 4.0 and Online) and SaaS system ( Parature, AutoTask).</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and implement Java to COM&#x2F;DCOM&#x2F;COM+&#x2F; .NET&#x2F;WCF integration subsystem</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Migrating data processing, mapping function …etc. modules from previous non-SOA version</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and develop rich internet UI using openlaszlo</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and deploy the load balancing and clustering SOA system in OpSource and Rackspace data center</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Deploy SOA system in Amazon&#39;s EC2 and S3</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Multiple threads concurrent subsystem design and implementation</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and implement distributed cache in cluster using ehcache</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develop, build, deploy and release projects using IDEA, maven, subversion and TeamCity</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Tracking bugs&#x2F;Issues and interacting with QA&#x2F;Support team using Jira Enterprise</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Using confluence page to document ideas and functional design</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Participate in agile development with scrum framework</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Java,
+                                XML,
+                                XSD,
+                                JAXB,
+                                REST,
+                                HTTP,
+                                Hibernate,
+                                openlaszlo,
+                                SSL,
+                                PKI,
+                                com4j,
+                                .NET 3.0&#x2F;2.0&#x2F;1.1,
+                                COM&#x2F;DCOM,
+                                Linux,
+                                QBXML,
+                                eConnect,
+                                servlet,
+                                Jetty,
+                                IDEA,
+                                Maven,
+                                subversion,
+                                Confluence,
+                                Jira,
+                                MySQL,
+                                RAID,
+                                SQL server,
+                                QuickBooks 2005,
+                                Sage MAS 90&#x2F;200&#x2F;500,
+                                MS Dynamics GP 9.0&#x2F;10.0&#x2F;2010,
+                                SOA,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Cloud Platform&#x2F;Infrastructure Design and Implementation for Boomi On Demand Production Environment </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Distributed clustering production environment with ten 64-bits Redhat Enterprise Linux servers, Clustering MySQL DB servers, SAN and NFS is hosted in Rackspace and OpSource. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Plan, Design and setup the clustering SOA production environment in OpSource and Rackspace</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Maintain, build  and release the QA&#x2F;production environment.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Migration of the production environment, application and MySQL DB data from OpSource to Rackspace</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup and configure Apache Solr searching and indexing server</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Create cron jobs and shell scripts to monitor hosted AtomSphere environment</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup newrelic monitoring environment</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Research and proto-type cluster solutions for the large SOA system.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design distributed cache system using ehcache to reduce the DB access traffic from front end.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and implement the dynamic http polling algorithm on the front end to reduce the possibility of the suppress storm requests.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Using comet, jetty continuation to design an asynchronous http push (long polling) events system.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Using worker-stealing algorithm to design and implement an Apache solr indexing cluster with large throughput transactions (millions per day)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Research and proto-type MySQL clustering technologies</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup and configuration Jetty and Openlaszlo clustering system (NFS sharing) </li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Communicate with Rackspace support engineers with their tickets system to tracking issues </li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design, implement and troubleshooting Apache solr out of memory and DB table transaction lock and response time vibration problem.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Using Sun JVM troubleshooting utilities (visualVM, jmap, jstat,..etc.) to investigate the heap new generation and old generation usage</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Tuning heap size and GC algorithm parameters to solve the out of memory issue</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Collect response time statistics data to diagnose software system vibration</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Using Unix vmstat, top,...etc. to investigate the File system IO, CPU usage</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                64-bits Redhat Enterprise Linux,
+                                MySQL clustering,
+                                Apache,
+                                PHP,
+                                Jetty,
+                                64 bits Java,
+                                Apache Lucene&#x2F; Solr,
+                                Openlaszlo,
+                                distributed cache,
+                                distributed and parallel algorithm,
+                                ehcache,
+                                comet,
+                                continuation,
+                                DWR,
+                                JVM tuning,
+                                jmap,
+                                jstat,
+                                Sun JVM Heap,
+                                GC,
+                                vmstat,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Desktop Accounting and ERP Enterprise Applications Integration (EAI) </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Solutions integrating with some popular desktop accounting software (QuickBooks, MS Dynamics Great Plains, Sage Peachtree and Sage Simply Accounting,), and ERP(SAP, Oracle e-Business, PeopleSoft, JD Edwards and Siebel, MS Dynamics Navision, MS Dynamics CRM On-premise 4.0 and online) are developed to import and export business data using their related popular SDKs and APIs. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Integrate QuickBooks (US, UK, Canada 2002-2008,) and QuickBooks Online Edition using the QBXML request processor.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Integrate Microsoft Dynamics Great Plains (9.x, 10.x and 2010) using eConnect (9.x, 10.x and 11) and WCF.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Integrate Microsoft Dynamics CRM on premise (3.0 and 4.0) and online using Web Services with NTLM authentication and windows live ID authentication </li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develop integration solution for Sage Peachtree Accounting system using its Import&#x2F;Export engine API</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Integrate with ERP (SAP, Oracle e-Business, PeopleSoft, JD Edwards and Siebel) using netmanage&#39;s Librados API.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup QuickBooks, Sage Peachtree, MS Dynamics GP desktop accounting system for testing</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Dynamics CRM 4.0 in EC2 windows server 2008 domain environment for testing</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Research integration with QuickBooks POS system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Research integration with Sage Software (MAS 90&#x2F;200, 500 ERP, Simply, Accpac ERP).</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Research integration solution with Microsoft Dynamics Navision 4.0, 5.0 and 2009 using XMLPort, .NET Web services and Communication Components with windows socket bus adapter.</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                QBXML RequestProcessor,
+                                Microsoft eConnect 9.x&#x2F;10.x&#x2F;11,
+                                Librados,
+                                SAP R3,
+                                BAPI,
+                                REST&#x2F;XML,
+                                COM&#x2F;COM+&#x2F;DCOM,
+                                .NET,
+                                MS Dynamics Navision,
+                                MS Dynamics CRM,
+                                SOAP&#x2F;WSDL,
+                                WCF,
+                                XMLPort,
+                                C&#x2F;AL,
+                                CodeUnits,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Amazon EC2 and S3 SOA HA Environment </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Three EC2 instances including two web instances as a cluster and one DB ( MySQL 5.x) instance, which is installed and configured with Apache open source search server solr and Apache httpd load balancer, are configured in Amazon web service virtual environment. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Install and setup the Amazon EC2 client security (PKI token based authentication), commands and AMI tools</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Amazon EC2 large&#x2F;small Linux&#x2F;windows server instance with static IP address and EBS.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Install and configure two Jetty instances (Web UI + App server) in EC2 instance (Fedora 7)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Apache httpd load balancer (mod_proxy_ajp and mod_proxy_balancer) for jetty 6.1.x</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup NFS server and client to share data between two EC2 instances</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Install MySQL 5.x server, create DB user, grant privileges and replicate the data.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Install and configure Solr in Jetty 6.x and create startup script</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Create Jetty startup script to create log directory and grant permissions to the running users.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">AMI bundles and images maintenance (create AMI bundles and upload it to S3, register AMI, remove AMI from S3).</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Rescue the broken AMI (Download AMI bundles from S3, unbundle and mount it as loop device).</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup EC2 security group and firewall.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Troubleshooting EC2 instance network and AMI booting problems</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Troubleshooting timeout and performance problem</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Fedora 6&#x2F;7&#x2F;8 x86_64 EC2 large instance with Apache, MySQL</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Troubleshooting MySQL 5.x 64-bit access denied problem</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Troubleshooting MySQL 5.x  performance (table lock timeout and setup the right isolation level)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configure distributed cache for the HA cluster using ehcache</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup EBS for the HA cluster</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Rightscale auto-deploy scripts to start EC2 instance with Boomi AtomSphere built-in. </li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Windows Server 2008 domain environment with SQL Server </li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Implement cron job and shell scripts to backup EC2 instance data and EBS snapshot to S3</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Fedora 6&#x2F;&#x2F;7&#x2F;8,
+                                AWS,
+                                EC2,
+                                S3,
+                                Jetty 6.x&#x2F;7.x,
+                                MySQL 5.x,
+                                Apache httpd 2.x  and Solr 1.3.x&#x2F;1.4.x,
+                                NFS,
+                                shell script(bash and sh),
+                                ehCache,
+                                cron,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Setup Development, Build and Deployment Environment for QA, Staging and Production Environment </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Setup java, maven, subversion development, TeamCity build environment and Apache ant release xml, shell scripts and PHP scripts to maintain the user accounts. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Install and configure java, maven and subversion.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Install and configure MySQL 5.x, PHP5.x, Jetty 6.x, openlaszlo, quartz and Apache solr.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">MySQL 5.x administration (create database, create user, grant permission and populate data)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Create Jetty startup script and DB update SQL script</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Upgrade MySQL DB Structure</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Using TeamCity create deploy and release projects</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Create PHP scripts connecting to MySQL DB to maintain user accounts</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Create unix shell scripts and Apache ant xml to release to QA, Staging and Production environment</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Maven 2.x,
+                                subversion,
+                                TeamCity,
+                                PHP 5.x,
+                                Apache Http server 2.3,
+                                Apache Ant,
+                                MySQL5.x,
+                                Jetty 6.x,
+                                Openlaszlo 3.4,
+                                Apache Solr,
+                                Fedora 8,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Research virtualization technology and implement Virtual Machines using VMware server and workstation </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Researching and comparing current popular virtualization and paravirtualization technologies like VMware, Xen, Microsoft Virtual PC and implementing Virtualization Environments using VMware Workstation 6.x and Server 1.x. Performance diagnostics and tuning in Linux and VMware Environment. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Research, compare and evaluate VMware workstation 6.2, VMware server 1.4 and Microsoft Virtual PC.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Install and Configure VMware Workstation 6.2, VMware Server 1.4, VMware Server Console.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Adding new hard disk to Logic Volume Group (pvcreat, vgextend, lvcreate,mke2fs) </li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Using top, vmstat, iostat and sar and some benchmark tools(dbench, unicbench) to diagnostics the Linux system performance</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Upgrade Dell and LSI RAID Controller BIOS firmware and Seagate SCSI Hard disk driver</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Tuning Disk I&#x2F;O performance via distributing the VM disk to different partition</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Install and setup VNC server and client on Linux</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Install and configure subversion 1.4, Maven 2.x, PHP5.x, Apache Httpd 2.x, MySQL 5.x.</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Virtualization,
+                                paravirtualization,
+                                VMware Workstation 6.2 and VMware Server 1.4,
+                                Xen,
+                                Microsoft Virtual PC,
+                                Fedora 8,
+                                RAID,
+                                SMP,
+                                Performance tuning,
+                                Subversion,
+                                Maven,
+                                PHP,
+                                MySQL,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Java to C&#x2F;C++, DLL, COM&#x2F;COM+&#x2F;DCOM&#x2F;.NET Integration </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Using JNI, JNA, Com4j, ikvm, java application can be seamlessly integrated with c&#x2F;c++ win32 DLLs, COM&#x2F;COM+&#x2F;DCOM Objects and .NET assemblies. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Research and evaluate open source technologies such as com4j, JNBridge, ikvm, etc. for java-com and java-.net integration</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develop prototype application using the Microsoft Visual Studio 6.0, 2003 and 2005 (C# and VB) </li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configure COM&#x2F;COM+&#x2F;DCOM&#x2F;.NET run time environment (regsvr32, dcomcnfg, gacutil, regasm, ..etc.)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develop java to win32 DLL application using JNA (Java Native Access)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Develop java to COM&#x2F;COM+&#x2F;DCOM object application using com4j and register com object programmatically.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Using windows ComAdmin Objects access COM+ catalog to install and configure .NET assemblies&#39; security permission programmatically in C#.</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Using iKVM to integrate Java with .NET run-time</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Using .NET System.Reflection namespace to dynamically invoke ComAdmin objects methods</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Using open source JNA (Java Native Access) connect to win32 DLLs from java</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Java,
+                                .NET 3.0&#x2F;2.0&#x2F;1.1,
+                                COM&#x2F;DCOM,
+                                Com4j,
+                                iKVM,
+                                C#,
+                                VB.NET,
+                                JNI,
+                                JNA,
+                                Win32 DLL,
+                                COMAdmin,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> SaaS system integration </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Design, development and implement integration solutions for SaaS systems (Parature, AutoTask and Zuora) based on REST&#x2F;XML and web services (SOAP&#x2F;WSDL) technologies. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Integrate with Parature.com using its’ REST style API</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Integrate with AutoTask using SOAP&#x2F;WSDL</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Integrate with Zuora using SOAP&#x2F;WSDL</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                REST&#x2F;XML,
+                                SOAP&#x2F;WSDL,
+                                namespace,
+                                DOM,
+                                soapUI,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> SAP system integration </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Integrate with SAP NetWeaver and SAP R3 ECC 6.x via web services and librados (sapjco) </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Install and configure SAP NetWeaver 2006s&#x2F;2007 test drive on Linux environment</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Research and Prototype different SAP system integration solutions</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Create and publish web service (SOAP&#x2F;WSDL) for RFC and BAPI in SAP system using ABAP workbench</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Self-teaching SAP basis system in two weeks</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Troubleshooting librados&#x2F;sapjco issues on SAP NetWeaver</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and Implement Web Services (SOAP&#x2F;WSDL) solution to integrate Java to SAP RFCs</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Administrator SAP ABAP web services environment using SAP front-end UI.</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                SAP R3,
+                                NetWeaver,
+                                Web Services,
+                                SOAP,
+                                WSDL,
+                                wsdl4j,
+                                SAP-JCO,
+                                RFC,
+                                BAPI,
+                                ABAP,
+                                Java,
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="work-item" >
+                <span class="header-date">Jun., 2006 &ndash; Nov.,2006,</span>
+                <span class="header-company-name">Senior System Engineer Manager, Vantage learning</span>
+                <span class="header-company-location" style="page-break-inside: avoid">, Newtown, PA,USA </span><br />
+                <div class="description-work"> As the leader in cost-effective, high volume, secure, scalable online assessment and instructional programs for K-12 and higher education, Vantage Learning leverage technology such as artificial intelligence, natural language understanding, and web-based learning objects. Vantage Learning has received accolades ranging from the prestigious CODIE Award for best instructional technology. </div>
+                <div id="projects" class="projects-section">
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Large scale SOA e-learning system architecture design and blueprinting </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Designed and blueprinted large scale SOA e-laerning system based on Java&#x2F;.NET with PostgreSQL and MySQL DB clusters </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Researching and blueprinting SOA new technologies (WCF, WPF, XAML, AJAX, XML, SOAP, WSDL)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup proto-type environment for distributed session in a clustering SOA system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design large-scale SOA clustering load balancing system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design integration solution for Java and .NET</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Researching on DB clustering environment for PostgreSQL and MySQL</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                SOA,
+                                E-Learning,
+                                Struts,
+                                J2EE,
+                                .NET 2.0&#x2F;3.0,
+                                Resin,
+                                SOAP,
+                                WSDL,
+                                UDDI,
+                                XML,
+                                PostgreSQL,
+                                MySQL,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Large Data Center Design and Administration </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> More than 100 Unix&#x2F;Linux&#x2F;Windows server machines and enterprise network devices (three sets of BIP load balancers, switch and routers) data center with more 30 mission-critical applications serving millions of Internet connections. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design data center network architecture and plan budgets on new devices and spare parts</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and implement clustering and load balancing hosting environment</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design and deploy large-scale SOA clustering system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Deployment of clustering hosting environment with enterprise DBMS</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">RAID 1,0,5 and SAN design and setup</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Veritas backup system setup and maintenance</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Unix and DBMS maintenance</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Web based system troubleshooting and debug</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Solaris 5,7,
+                                Linux(Redhat,Fedora),
+                                F5 Big-IP load balancers,
+                                Switch,
+                                Router,
+                                VLAN,
+                                UPS,
+                                RAID 1,0,5,
+                                Windows Server,
+                                Terminal server,
+                                VNC,
+                                SPARCStorage,
+                                Tape Drive,
+                                Veritas,
+                                Apache,
+                                Resin,
+                                PostgreSQL,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Sun SPARCStorage SSA Array 100 and Sybase SQL Server (10.x, 11.x) Data (DB schema, data and Stored-Procedure) Recovery </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Recovered important patent data and technologies from an old dead Sun SPARCStorage SSA Array with Sybase Server </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Troubleshooting the hardware failure of Sun SPARCStorage SSA Array</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Install and Configure Sybase SQL Server</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Use bcp, dump and load database to recover the crashed databases and stored procedure</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Output the SQL statements (DDL, DML) of the old data</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Solaris 5,7,
+                                Linux(Redhat, Fedora),
+                                Sybase SQL Server 10.x,
+                                Sybase ASE 11.x, 12,x 15.x,
+                                SSH,
+                                SPARCStorage  SSA Array 100,
+                                Tape Drive,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Ecommerce Open Source Software installation and Configuration </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Installed and Configuerd the osCommerce with the x-cart and Sales-n-Stats modules in PHP and MySQL environment </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Install and Configure test environment for osCommerce with CREloaded on PHP, MySQL environment</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Install and Configure x-cart with Sales-n-Stats module on PHP, MySQL environment</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Linux(Redhat, Fedora),
+                                PHP5.x,
+                                MySQL 5.x,
+                                Apache 2.x,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Resin Application Server Distributed Session Design and Setup </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Installed and Configuerd Resin Application Server with distributed session and http load balancer </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup resin cluster environment with distributed session enabled</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup http load balancer for resin with sticky bit</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Linux(Redhat, Fedora),
+                                resin 3.0,
+                                Java,
+                                Servlet,
+                                distributed session,
+                                cluster,
+                                load balancer (software and hardware),
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="work-item" >
+                <span class="header-date">May, 2002 &ndash; Jun.,2006,</span>
+                <span class="header-company-name">Senior Programmer&#x2F;Analyst and Unix System Administrator, Computer Science, Texas Tech University</span>
+                <span class="header-company-location" style="page-break-inside: avoid">, Lubbock, Texas,USA</span><br />
+                <div class="description-work"> System Administrator for networked Unix(Solaris, AIX, Mac OSX and Linux) and windows servers with SSO for Kerberos and LDAP, Veritas Netbackup for Disk Array with RAID 0&#x2F;1&#x2F;5, Migration from NIS&#x2F;NIS+ to LDAP and Postfix&#x2F;Sendmail conifiguration for the research and teaching lab for computer science department. </div>
+                <div id="projects" class="projects-section">
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Unix network System and Software routine maintenance </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Daily maintenance and system administration for networking Solaris, AIX and Mac OSX </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Troubleshooting Unix network system with multiple services (NFS, NIS+, SMTP, LDAP ...etc.) running</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed system maintenance scripts (Perl, bash)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Unix Security design and analysis</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Compiled, Installed and configured system and development software</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">NIS+ user accounts managements</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Diagnosed hardware and software problems</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Solaris 8,9,10,
+                                Linux,
+                                AIX,
+                                NFS,
+                                NIS&#x2F;NIS+,
+                                LDAP,
+                                SMTP,
+                                IMAP,
+                                POP3,
+                                WebMail,
+                                SSH,
+                                Samba,
+                                Kerberos,
+                                Netgroup,
+                                Jumpstart,
+                                User Accounts,
+                                Quota,
+                                License server,
+                                GNU Make,
+                                GCC,
+                                Java,
+                                RAID,
+                                Tape Library,
+                                Veritas,
+                                Apache,
+                                MySQL,
+                                Sun Ray Server,
+                                PAM,
+                                Security,
+                                Syslog,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Setup Veritas Netbackup System with RAID0&#x2F;1&#x2F;5  and Tape Library </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Setup,Administration and Backup for large Disk Array (RAID 0&#x2F;1&#x2F;5) Storage and virtual File system with Volume Manager </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Veritas NetBackup Enterprise Server 5.1 on Solaris 9</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Veritas  NetBackup client software on Linux and Solaris</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed and setup tape backup policies</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Installed and setup Sun StorEdge Tape Library L25 and L9</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Installed and setup Sun StorEdge A100 and 3300</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configured hardware and software RAID 0,1 and RAID 5</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Logical Partitions on RAID systems</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup volume and file system on the RAID system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Maintained (expand partition, clean file system) a large virtual file systems. (&gt;300GB). </li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Backup and restored the system and user data using Veritas software</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Veritas NetBackup Enterprise Server 5.1,
+                                Veritas NetBackup Client,
+                                RAID 0,1,5,
+                                SCSI,
+                                Volume Manager,
+                                VFS,
+                                Tape Library,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Setup LDAP,  Kerberos KDC and Cross-Realm system </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Designed and Implemneted the Signle Sign On (SSO) with setup LDAP server, Kerberos KDC and Cross-Real Sytem authentication </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup SunOne Directory Server 5.2 and populate the LDAP data from NIS+ tables</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup SEAM Kerberos KDC, cross-realm authentication with Microsoft Active Directory Server</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configure Kerberos and LDAP client and PAM authentication</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configure SASL&#x2F;GSSAPI authentication to LDAP server and identities mapping between SASL principal</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                SASL-2.1,
+                                GSSAPI,
+                                SEAM 1.2,
+                                SunOne Directory Server 5.2,
+                                NIS+,
+                                LDAP V3,
+                                PAM,
+                                Solaris 9,
+                                Windows Server 2003,
+                                Active Directory,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Migrated email system from UNIX mail server to Windows Exchange Server </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Setup, Administration for SMTP servers in Solaris and Windows and Configured all different kinds of email clients for all different systems with POP3&#x2F;IMAP with SSL authentication </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Led the email migration team and plan the email migration for whole department (more than 50 faculty&#x2F;staff and more than 500 students email accounts)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configured Unix&#x2F;windows mail client to connect to Microsoft exchange server via IMAP with SSL authentication</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Written reports and provide recommendations to Department Computer Use Committee</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Implemented IMPA&#x2F;S mail client to Microsoft Exchange Server</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Sendmail,
+                                Postfix,
+                                Unix Mail Client,
+                                Outlook,
+                                Solaris 9,
+                                Linux,
+                                Windows Server,
+                                Exchange Server,
+                                IMAP&#x2F;S,
+                                POP3&#x2F;S,
+                                SSL,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Secured Postfix SMTP server with SASL Authentication and Verification </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Setup and configured Postfix SMTP server with SASL Authentication and Verification </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Compiled, installed and configured the open source openssl, perl, SASL, postfix</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Enable SMTP with SASL authentication for postfix</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configured SASL authentication on the IMAP&#x2F;POP3 Unix client side (SquirrelMail and pine)</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Openssl-0.9.7,
+                                SASL-2.1,
+                                Postfix 2.4,
+                                SquirrelMail,
+                                pine,
+                                Solaris 9,
+                                Linux,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Installed AIX 5.1 and configured NIM on IBM RS6000 (10x 7043-140 boxes and 1x 7024-E30 box)  </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Setup and configured IBM AIX for RS6000 with NIM and NFS server </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configured Network Interface and IP network</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Installed AIX 5.1 and configured NFS Server&#x2F;Clients, NIS Clients</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configured Network Installation Management (NIM)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Deployed SORCER&#x2F;Jini&#x2F;Rio dynamic provisioning environment</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                AIX 5.1,
+                                NIM,
+                                NFS,
+                                NIS&#x2F;NIS+,
+                                SORCER&#x2F;Jini&#x2F;Rio,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Deployed Globus Tookit3.2.1 (OGSA&#x2F;OGSI) Grid Computing Environment on Solaris 9(3 boxes) and Linux (3 boxes) </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Setup and Configured Globus Toolkit Grid Computing Environment with SSL certificates </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Installed and configured OGSI core on Solaris 9 and Redhat Linux 9</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Installed OGSI GRAM, MDS, GSI, GridFTP and RLS on Solaris 9 and Red Hat Linux 9</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configured distributing security (SSL certificate based) for Globus Toolkit 3.2.1</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Compiled, installed and Configured Perl on Solaris 9</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Unix ( Solaris  9, Redhat Linux 9),
+                                NFS,
+                                NIS&#x2F;NIS+,
+                                Perl,
+                                PKI,
+                                X509,
+                                GNU Tools,
+                                Globus Toolkit 3.2.1,
+                                OGSA&#x2F;OGSI,
+                                GSI,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Setup Jumpstart Environment for Solaris 9 and Solaris 10 </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Designed and Implemented the Jumpstart Environment with one installation server, one profile server and two boot servers for two different IP subnets to install and configure network, NIS+ , NFS  for more than 50 Sun client boxes. Developed Perl scripts to maintain NIS+ tables and tftp boot parameters </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configured tftp and bootparamd server for the Jumpstart client machine on Solaris 9 and Solaris 10 Server</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Diagnosed and debug the problems related to RARP&#x2F;ARP</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Jumpstart rules, profiles, sysidcfg configuration files, begin, install and post install scripts</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup NIS+ client configuration files in the Jumpstart</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed Perl scripts to generate the entries of NIS+ tables for the client machines</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Unix( Solaris  9), Jumpstart, TFTP, Bootparamd, NIS+, Perl, Security, snoop, RARP&#x2F;ARP,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Designed and Implemented the Single Sign-On (SSO) for Unix and Windows Environments </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Integrate the UNIX and Windows environment in a Single sign-on environment using LDAP, Kerberos, AFS, Samba technologies </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed the Single-Sign-On (SSO) Solution for computer science department</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Researched the feasibility of different solutions of Single sign-on (SSO)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Built the test environment for the solution in Solaris 8 and 9 platform</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Built the GNU compiling and make environment to make the source file of samba in Solaris 9 platform</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Tested the Microsoft Service for Unix 3.0 for our requirement</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Built and Configure Samba environment</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed a customized Kerberos and AFS client with AFS home drive mapping in windows environment</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Compiled OpenAFS, OpenLDAP and MIT Kerberos in UNIX (Linux and Solaris) environment</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup and Configure MIT Kerberos, OpenAFS and OpenLDAP in Unix (Linux, and Solaris) environment</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Rebuilt MIT Kerberos with krb524 in windows environment</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed PAM module for TMP dir environment variable setting</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup PAM modules configuration file (pam.conf) in UNIX (Debian Linux and Solaris) environments</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Unix( Debian Linux, Solaris 8 and 9), LDAP(OpenLDAP2.1.2,
+                                SunONE Directory Server 5.2 ,
+                                MS Active Directory),
+                                AFS (OpenAFS 1.2.10),
+                                Kerberos (SEAM 1.2,
+                                MIT Kerberos V 1.3.1). PAM,
+                                GSSAPI,
+                                SSL,
+                                SASL,
+                                SSH,
+                                C++,
+                                GNU make,
+                                GCC,
+                                Visual.NET,
+                                Perl,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> The Migration from NIS+ to LDAP for Solaris </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Migrated the NIS+ services in Solaris 8 to LDAP (iPlanet Directory Server 5.1.) in Solaris 9. Installed, configured and implemented the test environment and designed LDAP schema to satisfy department&#39;s requirements in the directory services. Developed Perl scripts running on Solaris 9 to fulfill user managements. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Installed and Configured the Solaris 8, Solaris 9 Environment</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Installed and configured the iPlanet Directory Server in Solaris platform</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed the LDAP schema for department’s requirements</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Populated the NIS+ data to the LDAP</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed Perl scripts with LDAP enabled for user managements</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Unix(Solaris 8 and 9),
+                                LDAP( SunONE Directory Server 5.1 ),
+                                Kerberos (SEAM 1.2). NIS&#x2F;NIS+,
+                                SSL,
+                                SSH,
+                                Perl,
+                                GNU make ,
+                                GCC,
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="work-item" >
+                <span class="header-date">Aug.,2002 &ndash; Aug.,2006,</span>
+                <span class="header-company-name">Master Student, Computer Science, Texas Tech University</span>
+                <span class="header-company-location" style="page-break-inside: avoid">, Lubbock, Texas,USA</span><br />
+                <div class="description-work"> Stuied as Master Student in the CS department while working as part time as System Administration for the Teaching and Research labs for Unix&#x2F;Linux and Windows environments </div>
+                <div id="projects" class="projects-section">
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Master Thesis: A Service Wrapping and Provisioning Framework for SOA </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Based on Jini&#x2F;Rio technologies, this framework automatically generates the service wrapper codes (service dynamic smart proxy, bean wrapper and provisioning descriptions in xml format ...etc.) for legacy code and autonomic provision it as a service provider (JSB - Jini Service Bean) into SOA grid environment.  A GIS based Yield Tracker system (developed in Basic language) is wrapped as service provider and provisioned into multiple Rio cyber nodes. </div>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Jini 2.0,
+                                RIO,
+                                JERI,
+                                Globus Toolkits 3.x,
+                                J2EE,
+                                Web Service,
+                                OpenGIS,
+                                PostGIS,
+                                JDBC,
+                                GeoServer,
+                                Struts,
+                                Ant,
+                                Tomcat,
+                                Servlet,
+                                JSP,
+                                UML2,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> GIS Project: A Yield Mapping and Prediction Information Delivery System </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> By using a OpenGIS project Geoserver and GIS DBMS ( PostgreSQL&#x2F; PostGIS) , the system displays a real web GIS map to the farmer. The farmer selects a particular field and other related planting information (planting date, irrigation or not, crop type) from the web map. The system uses an agriculture model (developed in Basic Language) and other information collected from satellites system in real-time to dynamically generate a web GIS based yield prediction map. </div>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                OpenGIS,
+                                PostGIS,
+                                PostgreSQL,
+                                JDBC,
+                                GeoServer,
+                                GeoTools,
+                                Struts,
+                                Ant,
+                                Apache Maven,
+                                Servlet,
+                                JSP,
+                                MVC,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Independently finished practical course projects list </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid">  </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed a compiler which implements LL(1) grammar using c programming language. The compiler includes the lexical analysis, semantic section and symbol table, semantic stack and data structures. It supports 3-dimensions array manipulations</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Used Rational Rose to design Object-Oriented (OO) UML diagrams (includes use case, components diagrams, sequence and collaboration diagrams, class and package diagrams and related description documents) for the Supermarket Check-out System</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed a parallelized service provider for large-scale matrix multiplication based on SORCER environment (Jini&#x2F;Rio&#x2F;JavaSpace) and JBOSS</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed a block device driver and a tar file system module based on Linux kernel 2.4</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed Java card applications and OpenCard Framework (OCF) card services which include the CHV authentication and a Test application</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed a Map Navigator (run as MIDlets and RMS on MIDP device) and Map Gateway (run as servlets in servlets engine) which can send a map query to mapquest.com and display the map image on the MIDP screen to help travel</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                GCC Compiler,
+                                Solaris,
+                                Linux Kernel 2.4,
+                                UML 2,
+                                Rational Rose,
+                                Java,
+                                SORCER,
+                                SOA,
+                                Jini,
+                                JavaSpace,
+                                JBoss,
+                                J2EE,
+                                VFS,
+                                Java Card platform,
+                                MIDP,
+                                MIDlets,
+                                Servlets,
+                                OCF,
+                                CLDC,
+                                Ant,
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="work-item" >
+                <span class="header-date">Apr., 2000  &ndash; May, 2002,</span>
+                <span class="header-company-name">Senior Software Engineer, Technology Development Center, Sun Microsystem (China) Co.,Ltd.</span>
+                <span class="header-company-location" style="page-break-inside: avoid">, Beijing,P. R. China</span><br />
+                <div class="description-work"> As Senior software engineer, provided consulting services for Java&#x2F;J2EE technologies for local companies. Helped design and architecture the Java&#x2F;J2EE systems around Sun&#39;s software products like iPlanet Application Server, Directory Server, Message Queue Server </div>
+                <div id="projects" class="projects-section">
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Java Message Service(JMS) Prototype Application </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> The prototype proves the idea of using JMS to develop a software system to implement tax documents approval process in Tax Bureau of China. Two computer nodes were deployed to emulate city node and province&#x2F;state node. Each node includes JSPs as input interface to human user, Servlets as messages sender to JMS message queue, Message-Driven Beans (MDBs) act as JMS message listener to message queue and also include JDBC connectors to local DBMS. This prototype fulfills a typical JMS system which includes the message queue server and application server and DBMS. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Application Server, Message Queue Server, Directory Server and Oracle DB Server in tow emulation nodes</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed and developed JSP, Servlets and Message-Driven Beans</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Deployed the application packages (.war and .ear) in two nodes</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Design the test cases for the JMS prototype application</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                iPlanet Application 6.0,
+                                iPlanet Directory Server,
+                                iPlanet Message Queue Server,
+                                Oracle 8.x,
+                                Solaris,
+                                 JSP,
+                                Servlet,
+                                EJB,
+                                JDBC,
+                                JNDI,
+                                LDAP,
+                                SQL,
+                                JMS,
+                                Message-Driven Bean,
+                                JMS,
+                                J2EE,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Remote Learning Management Platform (www.ambow.com) </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Based on J2EE technology, an e-learning platform includes course management, certificate management, and platform management subsystems as well as other useful utilities. The development of the platform was followed the RUP engineering process. UML, object-oriented analysis (OOA) and object-oriented design (OOD) technologies were used during the whole modeling process. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Managed the project engineering process based on RUP</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Directed the whole development team (over 20 software engineers)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Trained the team members with J2EE design and implementation technologies</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Provided Consulting Service in the system of OOA and OOD</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Directed Java and J2EE coding, debug and deployment in Weblogic 6.0</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Weblogic and Oracle DBMS development environments</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Weblogic 6.0,
+                                Oracle 8.x,
+                                Windows 2000,
+                                Solaris,
+                                Rational Rose 2000,
+                                Microsoft Visual SourceSafe 6.0,
+                                JSP,
+                                Servlet,
+                                EJB,
+                                JDBC,
+                                JNDI,
+                                LDAP,
+                                SQL,
+                                Security,
+                                UML,
+                                OOA,
+                                OOD,
+                                MVC,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Bao Steel B2B Website (www.bsteel.com) </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Based on the blueprint of the J2EE&#39;s sample program (Pet store) which implemented the MVC pattern, the first large-scale B2B website in China consists of more than ten modules such as User Manager, DB Manager, Auction, Products, Ordering, Bargaining, Communication, …etc. and more than 100 tables. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Set up the iPlanet App Server development and test environment in Solaris platform</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Provide Consulting Services in the development of bargaining module (Includes 2 session beans and over 10 JSPs and many other helper classes)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Analyzed, designed, developed and deployed auction module (Includes 6 EJBs and over 20 JSPs and many other helper classes such as value-object etc.)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Directed the Java coding and deployment in iPlanet App Server 6.0</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup Oracle DB server for development and production environments</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup CVS system on Solaris platform</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                iPlanet Application Server 6.0,
+                                iPlanet Directory Server 4.1,
+                                iPlanet Web Server 4.1,
+                                Oracle 8.1.5,
+                                Solaris 2.7,
+                                Window NT 4.0-Sp6,
+                                Jakarta Ant 1.1,
+                                CVS,
+                                JSP,
+                                Servlets,
+                                EJB,
+                                JDBC,
+                                JNDI,
+                                LDAP,
+                                SQL,
+                                Security,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Project Management Tools </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Run on iPlanet Application Server (iAS) 6.0 platform, the tools provide the web-based functionalities such as project management, user management, document management and resources management.  The user management module is LDAP-based authentication and session-based authorization. A CORBA (JavaIDL) server provides the SCC and file accessing in local machine for EJBs (CORBA client) in iAS6.0. These tools include 30 Servlets, 20 JSPs, 10 EJBs and some other helper classes </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Set up and administered the development of iPlanet App Server 6.0</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed, developed and deployed the LDAP based user management module</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed and developed the CORBA based project management tool</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed the Security and Transaction of the whole project</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                iPlanet Application Server 6.0,
+                                iPlanet Directory Server 4.1,
+                                iPlanet Web Server 4.1,
+                                Oracle 8.1.5,
+                                Solaris 2.7,
+                                 JSP,
+                                Servlet,
+                                EJB,
+                                JDBC,
+                                Java IDL,
+                                CORBA,
+                                JNDI,
+                                LDAP,
+                                SQL,
+                                Security,
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="work-item" >
+                <span class="header-date">Aug.,1998 &ndash; Apr.,2000,</span>
+                <span class="header-company-name">Software Engineer, IBM China Research and Development Lab</span>
+                <span class="header-company-location" style="page-break-inside: avoid">, Beijing,P. R. China</span><br />
+                <div class="description-work"> As software engineer, designed and implemented Java&#x2F;J2EE systems around IBM software products like IBM WebSphere ...etc. </div>
+                <div id="projects" class="projects-section">
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Credit Card Internet Online Payment System </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Based on the existing POS payment system supported by ICBC(Industrial and Commercial Bank of China), a credit card online payment system was developed and deployed using IBM Payment Server, Net.Commerce (previous version of IBM WebSphere Commerce Suite), WebSphere Application server. Payment Server connected to ICBC POS front server via encrypted communication by using a serial (COM port) interface software module which emulates the typical POS credit card operation for the internet online user. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Analyzed the requirements of interface software</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed and implemented the communication module(C lib) with POS</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed and developed COM port interface module using javax.comm</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed and deployed the interface module (servlets) in the WebSphere Application Server between Net.Commerce and PaymentServe</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Followed SDLC process to design, develop and test the system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Written SDLC documents during design, development and testing phase</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                WebSphere Application Server,
+                                Net.Commerce,
+                                Payment Server,
+                                DB2,
+                                WinNT Server,
+                                JSP,
+                                Servlet,
+                                Security,
+                                SSL,
+                                JDBC,
+                                C,
+                                Socket and Serial Communication Programming,
+                                javax.comm,
+                                SDLC,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Jiro&#x2F;Jini-based Storage Management System </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Based on Jiro&#x2F;Jini technology, developed a distributed management system for SAN. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Analyzed requirements of the SAN (Storage Area Network) system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Participated in the system prototype design and development</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed web-based management client for the system which include some servlets connecting to the Jini services (Management Facade- MF)</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Apache1.3,
+                                JDK1.2.x,
+                                Solaris 2.7,
+                                JSP,
+                                Servlet,
+                                Jiro&#x2F;jini,
+                                RMI,
+                                SAN,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Handwriting Recognizing System </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Using Java JNI, MFC, Lotus Domino, LS:DO, RDO:ODBC and DB2, developed a handwriting recognition testing, research environment for IBM ThinkScribe. It includes a web-based client (servlets communicate with ThinkScribe Driver via JNI), DB accessing (LS:DO and RDO:ODBC) and stand-alone application client (MFC) </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Anylisis the requirements and design the system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Set up Lotus Domino R5 web environment and developed lotus script agents querying the data in DB2 through LS:DO</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed MFC application connecting to DB2 via RDO:ODBC</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed the Java class calling the handwriting recognition engine (.Dll) via JNI</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                Lotus Domino R5,
+                                Visual Basic 6.0,
+                                DB2,
+                                WinNT-sp5,
+                                Lotus Notes,
+                                MS-IE,
+                                JSP,
+                                Servlet,
+                                Lotus Script,
+                                LS:DO,
+                                RDO:ODBC,
+                                Visual Basic,
+                                MFC,
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="work-item" >
+                <span class="header-date">Apr.,1996 &ndash; Jul.,1997,</span>
+                <span class="header-company-name">System&#x2F;Network&#x2F;Software Engineer, North China Institute (Taiji Computers Corporation)</span>
+                <span class="header-company-location" style="page-break-inside: avoid">, Beijing,P. R. China</span><br />
+                <div class="description-work"> Worked for different teams as System&#x2F;Network&#x2F;Software Engineer. Provided production supporting services for IBM RS6000 and Disk Array products. Developed IC Card Application system. Designed Large scale network system with Cisco Routers and Switches. </div>
+                <div id="projects" class="projects-section">
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> System Engineer,IBM Service Center </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> This service center is the joint department of IBM and Taiji Computers Company. It provides professional technical supports for IBM RS6000 and IBM Disk Array Products. </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Installed Software in RS6000&#x2F;AIX</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup HACMP software in RS6000&#x2F;AIX system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Troubleshooting RS6000 and IBM disk array (SCSI, SSA) hardware system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Troubleshooting software problems in AIX system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Installed and Maintained IBM RS6000 and IBM Disk Array (SCSI and SSA) Products hardware</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Setup volume, logical partition, Journal file system and RAID 0,1,5 on IBM Disk Array Products</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                IBM RS6000 (SP2, R50, ..., 43P),
+                                AIX,
+                                IBM Disk Array,
+                                AIX,
+                                TCP&#x2F;IP,
+                                HACMP,
+                                RAID0,1,5,
+                                SCSI. JFS,
+                                SSA,
+                                Volume Manager,
+                                Logical&#x2F;Physical Partition,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Software Engineer, HUAXU Golden Card Co.Ltd. </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Developed IC (Integrated Circuit) Card related hardware and IC Card application system </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed IC Card (includes Memory, Security and CPU) Application System</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed IC Card Reader Application System</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed IC Card Reader Driver Application (DLL) using C++ (BC++ and VC++) on windows platform</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed IC Card Reader GUI user Application using Visual Basic on windows platform</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed and Developed IC Card Information Management System using FoxPro, PowerBuilder and Perl on Windows Platform</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                ATMEL Chips,
+                                Motorola,
+                                Memory&#x2F;Security&#x2F;CPU Card. M51 (Single Chip Computer). Visual C++,
+                                Visual Basic,
+                                Borland C++,
+                                Power Builder,
+                                Widows NT,
+                                C++,
+                                DLL,
+                                Lib,
+                                COS (Chip OS),
+                                DES,
+                                Assembly Language,
+                                FoxPro,
+                            </span>
+                    </div>
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> Large scale Network System Design and Administion </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Designed large-scale network system plan and implemented the network system (hardware installation, Data link layer and IP layer configuration) with fiber network products (Cisco, IBM ATM and 3Com) </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">People&#39;s Bank of China (The Central Bank of China) ATM network system design and implementation (ATM 622M, ELAN, VLAN, CISCO Router 7500)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">China Investment Bank WAN network system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">JiNan, ShanDong Province Broadcast &amp; TV network system (HFC)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">ATM Network system of Beijing People&#39;s Broadcast Station (IBM 8285, Cisco 7500)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">PICC Property of Tianjin network system (IBM 8274,8273,Cisco 2511)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">PICC Property of LiaoNing and ShenYang Network system</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">PICC Property of HeiLongJiang Network System (IBM 8260,8274, 8271),Notes: PICC - People&#39;s Insurance Company of China</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Responsible for network project design, implementation and plan</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Provided system (IBM RS6000, PC Server, AIX, SCO UNIX, NT, Informix) integration plans for customers</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Achieved the certificate of IBM advanced networking training and networking hands-on training</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configured RIP, OSPF routing protocol in Cisco Routers via IOS</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Detailed Design ELAN and VLAN with IP subnet</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configured ELAN, VLAN in IBM ATM Switch</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configured IP WAN in Cisco Router</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Configured Ethernet, Token-Ring, X.25, ISDN, Frame-Relay and other data layer network</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">IBM Network Products hardware installation and repair</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Installed Cisco and 3Com network products (Router, Switch, and Fiber Products)</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                IBM 8265&#x2F;8285&#x2F;8274,
+                                Cisco Router 7500,
+                                Cisco 2511,
+                                ATM,
+                                ELAN,
+                                VLAN,
+                                HFC,
+                                RIP,
+                                OSPF,
+                                Cisco IOS,
+                                X.25,
+                                Frame-Relay,
+                                ISDN,
+                                Ethernet,
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="work-item" >
+                <span class="header-date">Jun., 1991 &ndash; Sep.,1993,</span>
+                <span class="header-company-name">Mechanical Engineer, Yongji Electrical and Motor Factory</span>
+                <span class="header-company-location" style="page-break-inside: avoid">, ShanXi Province,P. R. China</span><br />
+                <div class="description-work"> Designed Locomotive engine electic motor&#x2F;generator cases and automated with AutoCAD, CAPP and CAM with FMS&#x2F;CIMS </div>
+                <div id="projects" class="projects-section">
+                    <div class="project-item"  >
+                            <span class="item-projects-title" style="page-break-after: auto;page-break-inside: avoid"> CIMS and FMS CAPP&#x2F;CAD&#x2F;CAM manufacturing Automcation application development </span><br/>
+                            <div class="description-work" style="page-break-inside: avoid"> Locomotive&#39;s motor and generator related mechanical products design and manufacturing processing. Programming on FMS&#x2F;CIM manufacture centers from GE (General Electric) </div>
+                            <div class="subtitle-section" style="page-break-after: avoid">Highlights:</div>
+                            <ul class="highlighted" style="page-break-after: auto">
+                                <li style="page-break-after: auto;page-break-inside: avoid">Mechanical engineer of locomotive&#39;s motor and generator</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Developed CAPP, CAD software of CIMS system(C, C++, AutoCAD)</li>
+                                <li style="page-break-after: auto;page-break-inside: avoid">Designed and implemented the manufacturing process of mechanical component in locomotive</li>
+                            </ul>
+                            <div class="subtitle-section" style="page-break-before: auto;page-break-after: avoid">Technologies:</div>
+                            <span class="technologies-work" style="page-break-before: avoid;page-break-inside: avoid">
+                                AutoCAD,
+                                C,
+                                C++,
+                                DOS,
+                                Z80(Single Chip Computer),
+                                Borland C++,
+                            </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="hobbies" class="section" >
+            <div class="title-section" style="page-break-after: avoid">Hobbies Projects:</div>
+            <div id="projects" class="projects-section">
+                <div class="hobby-project-item" >
+                        <span class="item-projects-title"> Personalized JSON Schema Resume </span><br/>
+                        <div class="description-work"> Customized the open source project dynamic-json-resume using JSON format and mustache templates with Node.js and CSS3. github url: https:&#x2F;&#x2F;github.com&#x2F;rongyj&#x2F;dynamic-json-resume&#x2F;tree&#x2F;rongyj </div>
+                        <div class="subtitle-section">Highlights:</div>
+                        <ul class="highlighted">
+                            <li>Adapt the JSON schema to personal resume format</li>
+                            <li>Developed new utility methods to filter the JSON data</li>
+                            <li>Personalized CSS3 styles with auto counting for multiple counters</li>
+                            <li>Added new table mustache template</li>
+                            <li>Added @media print page numbers to the CSS3 styles</li>
+                            <li>Added CSS3 style for large table crosing page breakes</li>
+                            <li>Debug in Atom with an open source Node-Debugger package</li>
+                        </ul>
+                        <div class="subtitle-section">Technologies:</div>
+                        <span class="technologies-work">
+                            JavaScript,
+                            HTML5,
+                            CSS3,
+                            Node.js,
+                            JSON,
+                            mustache,
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="extra">
+    </div>
+    <!--div id="print-foot"/-->
+
+</div>
