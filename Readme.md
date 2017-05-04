@@ -9,7 +9,7 @@ This solution will be client/browser centric solution. The Node.js site just ser
 ## Solution 2: Server Central Solution
 ![Server Central Solution](https://github.com/rongyj/nodejs-weatherunderground/blob/master/Arch-Diagrams/Slide2.jpg)
 
-This solution will be Node.Js server centric solution. The server will need periodically to call the WeatherUnderground APIs for each live client/browsers to push the weather data to the client. The client side can implement something like react/angular client js client-side framework. It can also implement as websocket to push the data to client side. 
+This solution will be Node.Js server centric solution. The server will need periodically call the WeatherUnderground APIs for each live client/browsers to push the weather data to the client. The client side can implement something like react/angular js client-side framework. It can also implement as websocket to push the data to client side. 
 
 ## Setup the docker container for the solution 1 
 ### Please install docker engine in your localhost if not. It is very easy to do it from www.docker.com
