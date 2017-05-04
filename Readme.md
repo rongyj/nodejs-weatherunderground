@@ -17,6 +17,9 @@ This solution will be Node.Js server centric solution. The server will need peri
 `git clone https://github.com/rongyj/nodejs-weatherunderground.git`
 ### Pull the prebuilt docker image from hub.docker.com
 `docker pull rongyj/nodejs-weatherunderground`
+### Also you can build your own docker image by running :
+`cd nodejs-weatherunderground;
+docker build -t ronfyj/nodejs-weatherunderground .`
 ### Start the docker container with mapping the port to localhost
 `docker run -d -p 8086:8080 rongyj/nodejs-weatherunderground`
 ### Access the node.js site from a browser with url : http://locahost:8086/resume
