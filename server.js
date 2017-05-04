@@ -1,9 +1,7 @@
 'use strict';
 
 const express = require('express');
-var $ = require('jquery');
 var fs=require('fs');
-var jsdom = require('jsdom');
 
 // Constants
 const PORT = 8080;
