@@ -21,6 +21,6 @@ This solution will be Node.Js server centric solution. The server will need peri
 `docker run -d -p 8086:8080 rongyj/nodejs-weatherunderground`
 ### Access the node.js site from a browser with url : http://locahost:8086/resume
 ### Test result will look like the screenshot as below:
-![Test result screenshot](https://github.com/rongyj/nodejs-weatherunderground/blob/master/result-screenshot.jpeg)
+![Test result screenshot](https://github.com/rongyj/nodejs-weatherunderground/blob/master/result-screenshot.png)
 
 You can see the temperature of your local city. The city might not be exactly the city you reside because it is using ip location to geolookup the location. It is not that accurate. But we should be able to improve it with more information from the google geo lookup service.
