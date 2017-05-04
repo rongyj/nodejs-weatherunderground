@@ -13,7 +13,7 @@ This solution will be Node.Js server centric solution. The server will need peri
 
 ## Setup the docker container for the solution 1 
 ### Please install docker engine in your localhost if not. It is very easy to do it from www.docker.com
-### Git cloent the repo from github
+### Git clone the repo from github
 `git clone https://github.com/rongyj/nodejs-weatherunderground.git`
 ### Pull the prebuilt docker image from hub.docker.com
 `docker pull rongyj/nodejs-weatherunderground`
