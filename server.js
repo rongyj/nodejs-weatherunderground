@@ -18,10 +18,6 @@ app.get('/resume',function(req,res){
 });
 
 app.get('/', function (req, res) {
-	//$.getJSON('https://api.ipify.org?format=json', function(data){
-	    //console.log(data.ip);
-		//res.send(data.ip);
-		//});
   res.send('Hellow world !\n');
 });
 
