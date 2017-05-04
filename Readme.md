@@ -3,4 +3,6 @@ Problem: The purpose of this exercise is to build a prototype that shows we can 
 
 # Solutions:
 ## Solution 1: Client central Solution
-![Client Central Solution](Arch-Diagrams/Slide.jpg)
+![Client Central Solution](https://github.com/rongyj/nodejs-weatherunderground/blob/master/Arch-Diagrams/Slide1.jpg)
+## Solution 2: Server Central Solution
+![Server Central Solution](https://github.com/rongyj/nodejs-weatherunderground/blob/master/Arch-Diagrams/Slide2.jpg)
